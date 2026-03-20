@@ -9,7 +9,7 @@ const props = defineProps({
 <template>
   <div class="tire"
        :style="{
-        color: props.color || 'BLACK'
+        color: props.color || 'BLACK',
         borderColor : props.color || 'BLACK'
   }">
 <!--    부모가 안주면 기본값 블랙-->
@@ -22,7 +22,8 @@ const props = defineProps({
 .tire {
   font-weight: bold;
   font-size: 14px;
-  //바깥 테두리(타이어 설정)
+  padding: 10px;
+  /*바깥 테두리(타이어 설정)*/
   border: 3px solid;
   border-radius: 8px;
   text-align: center;
