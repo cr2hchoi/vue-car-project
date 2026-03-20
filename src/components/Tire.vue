@@ -9,24 +9,30 @@ const props = defineProps({
 <template>
   <div class="tire"
        :style="{
-        color: props.color || 'BLACK',
-        borderColor : props.color || 'BLACK'
+        outlineColor : props.color || 'BLACK'
   }">
 <!--    부모가 안주면 기본값 블랙-->
-    {{ props.color || 'BLACK' }} Tire
+    <slot></slot>
+<!--    타이어 안에 휠 집어넣을 수 있다고는 하는데... -->
 
   </div>
 </template>
 
 <style scoped>
 .tire {
-  font-weight: bold;
-  font-size: 14px;
-  padding: 10px;
-  /*바깥 테두리(타이어 설정)*/
-  border: 3px solid;
-  border-radius: 8px;
-  text-align: center;
-  transition: all 0.3s; /* 색이 바뀔 때 부드럽게 변함 */
+  /*타이어 정렬*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 핵심 1: 주변 상황이 어떻든 절대 줄어들지 마라! (0은 수축 거부) */
+  flex-shrink: 0;
+  width: 80px;  /* 휠보다 조금 더 크게 */
+  height: 80px;
+  /* 두툼한 타이어 고무 두께 */
+  outline: 20px solid ;
+  border-radius: 50%;
+  box-sizing: border-box;
+
+
 }
 </style>
