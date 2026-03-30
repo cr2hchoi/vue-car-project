@@ -4,14 +4,14 @@ import Tire from "./Tire.vue";
 
 
 <template>
-  <div class="real-wheel">
+  <div class="rear-wheel">
     <Tire color = "PURPLE"/>
     <!--    Tire 컬러 대입-->
   </div>
 </template>
 
 <style scoped>
-.real-wheel{
+.rear-wheel{
   position: relative;
   width: 60px;
   height: 60px;

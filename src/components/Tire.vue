@@ -29,7 +29,7 @@ const props = defineProps({
   width: 80px;  /* 휠보다 조금 더 크게 */
   height: 80px;
   /* 두툼한 타이어 고무 두께 */
-  outline: 20px solid ;
+  border: 20px solid ;
   border-radius: 50%;
   box-sizing: border-box;
 

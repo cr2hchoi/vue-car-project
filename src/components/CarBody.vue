@@ -27,7 +27,10 @@ const props = defineProps({
 
 <style scoped>
 .car-body{
-
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .car-roof {
   width: 500px;
@@ -39,7 +42,7 @@ const props = defineProps({
   /* 왼쪽 위 점을 30% 지점에 찍어서 사선을 만듦 */
   position: relative;
   transition: background-color 0.5s; /* 색 바뀔 때 부드럽게! */
-  margin-left: 100px;
+  margin-left: 0px;
 }
 
 .car-windows{
@@ -96,7 +99,7 @@ const props = defineProps({
 .car-bottom{
   width: 100%;
   height: 120px;
-  border-radius: 100px 0px 40px 20px;
+  border-radius: 100px 20px 40px 20px;
   position:relative;
 }
 </style>
