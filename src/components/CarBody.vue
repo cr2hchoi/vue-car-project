@@ -42,11 +42,11 @@ const props = defineProps({
   /* 왼쪽 위 점을 30% 지점에 찍어서 사선을 만듦 */
   position: relative;
   transition: background-color 0.5s; /* 색 바뀔 때 부드럽게! */
-  margin-left: 0px;
 }
 
 .car-windows{
   position:absolute;
+
   flex-direction: row;
   justify-content: space-around;
   display:flex;
@@ -97,7 +97,8 @@ const props = defineProps({
 }
 
 .car-bottom{
-  width: 100%;
+  width: 95%;
+  right: 10px;
   height: 120px;
   border-radius: 100px 20px 40px 20px;
   position:relative;

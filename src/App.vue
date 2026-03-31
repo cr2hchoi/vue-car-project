@@ -1,31 +1,41 @@
 <script setup>
 //import할 부품들
+import Background from "@/components/Background.vue";
 import CarBody from "./components/CarBody.vue";
-import FrontWheel from "./components/FrontWheel.vue";
-import RearWheel from "./components/RearWheel.vue";
+import Wheel from "./components/Wheel.vue";
 
 //ref 변수 사용
 import { ref } from 'vue';
 
 // 사용자가 선택한 색상을 저장할 반응형 변수 만듭니다. (기본값: lavender)
 const selectedColor = ref('lavender');
+//타이어 바퀴 선택할 수 있는 반응형 변수
+const selectedTireColor = ref('BLACK');
 </script>
 
 <template>
   <div class="garage">
+    <Background/>
     <h1 class="title">🚗다래의 붕붕이</h1>
 
-    <div class="color-picker">
-      <label for="color">원하는 차 색상을 골라주세요: </label>
-      <input type="color" id="color" v-model="selectedColor" />
-      <span class="color-code">{{ selectedColor }}</span>
-    </div>
+    <section class="controls">
+      <p> 나만의 차를 커스텀 해요 ! </p>
+      <div class="option">
+        <label>🎨 차 본체 색상 </label>
+        <input type="color" v-model="selectedColor" />
+      </div>
+
+      <div class="option">
+        <label>🛞 바퀴 색상</label>
+        <input type="color" v-model="selectedTireColor" />
+      </div>
+    </section>
 
     <div class="car-container">
       <CarBody :bodyColor="selectedColor" />
       <div class="wheel-area">
-        <FrontWheel />
-        <RearWheel />
+        <Wheel location="front" :color="selectedTireColor" />
+        <Wheel location="rear" :color="selectedTireColor" />
       </div>
     </div>
   </div>
@@ -67,18 +77,21 @@ const selectedColor = ref('lavender');
   margin-top: -30px; /* 몸체와 바퀴 합체! */
 }
 
-/* 3. 사용자 인터페이스 (UI) */
-.color-picker {
-  margin-bottom: 30px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  display: inline-block;
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 50px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  backdrop-filter: blur(5px); /* 배경 살짝 흐리게 해서 고급스럽게 */
 }
 
-.color-code {
-  margin-left: 10px;
+.option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: bold;
-  text-transform: uppercase;
 }
 </style>
